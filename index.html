@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="display">Website Style Guide</h1>
+    <h1>Website Style Guide</h1>
+    <div>
+      <h2>Theme</h2>
+    </div>
+    <div class="theme-container container">
+      <div class="theme-panel">
+        <button id="theme-light" value="light">Light</button>
+        <button id="theme-dark" value="dark">Dark</button>
+      </div>
+    </div>
+    <div id="colors">
+      <h2>Colors</h2>
+      <div class="color-container container">
+        <div class="color-panel beige">
+          <p class="color-label">Beige</p>
+          <p class="color-hex">#efe8e3</p>
+        </div>
+        <div class="color-panel orange">
+          <p class="color-label">Orange</p>
+          <p class="color-hex">#ff430f</p>
+        </div>
+        <div class="color-panel dark-grey">
+          <p class="color-label">Dark Grey</p>
+          <p class="color-hex">#212121</p>
+        </div>
+        <div class="color-panel black">
+          <p class="color-label">Black</p>
+          <p class="color-hex">#000000</p>
+        </div>
+      </div>
+    </div>
+    <div id="fonts">
+      <h2>Fonts</h2>
+      <div class="font-container container">
+        <div class="font-panel">
+          <p class="font-label vanguard">Vanguard</p>
+          <p class="regular vanguard">The quick brown fox jumps over the lazy dog.</p>
+          <p class="bold vanguard">The quick brown fox jumps over the lazy dog.</p>
+          <p class="italic vanguard">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+        <div class="font-panel">
+          <p class="font-label ellograph">Ellograph</p>
+          <p class="regular ellograph">The quick brown fox jumps over the lazy dog.</p>
+          <p class="bold ellograph">The quick brown fox jumps over the lazy dog.</p>
+          <p class="italic ellograph">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+        <div class="font-panel">
+          <p class="font-label space-grotesk">Space Grotesk</p>
+          <p class="regular space-grotesk">The quick brown fox jumps over the lazy dog.</p>
+          <p class="bold space-grotesk">The quick brown fox jumps over the lazy dog.</p>
+          <p class="italic space-grotesk">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+        <div class="font-panel">
+          <p class="font-label space-mono">Space Mono</p>
+          <p class="regular space-mono">The quick brown fox jumps over the lazy dog.</p>
+          <p class="bold space-mono">The quick brown fox jumps over the lazy dog.</p>
+          <p class="italic space-mono">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+        <div class="font-panel">
+          <p class="font-label abide">Abide</p>
+          <p class="regular abide">The quick brown fox jumps over the lazy dog.</p>
+          <p class="bold abide">The quick brown fox jumps over the lazy dog.</p>
+          <p class="italic abide">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+        <div class="font-panel">
+          <p class="font-label briar">Briar</p>
+          <p class="regular briar">The quick brown fox jumps over the lazy dog.</p>
+          <p class="bold briar">The quick brown fox jumps over the lazy dog.</p>
+          <p class="italic briar">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+        <div class="font-panel">
+          <p class="font-label fugaz-one">Fugaz One</p>
+          <p class="regular fugaz-one">The quick brown fox jumps over the lazy dog.</p>
+          <p class="bold fugaz-one">The quick brown fox jumps over the lazy dog.</p>
+          <p class="italic fugaz-one">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+      </div>
+    </div>
+    <div it="text-styles" >
+      <h2>Text Styles</h2>
+      <div class="text-container container">
+        <div class="text-panel">
+          <h1>H1: Main page heading</h1>
+          <ul>
+            <li>Font-weight: 700 (bold)</li>
+            <li>Font-size: 26px</li>
+            <li>Font-family: Space Mono</li>
+          </ul>
+        </div>
+        <div class="text-panel">
+          <h2>H2: Subheading</h2>
+          <ul>
+            <li>Font-weight: 500</li>
+            <li>Font-size: 18px</li>
+            <li>Font-family: Space Mono</li>
+          </ul>
+        </div>
+        <div class="text-panel">
+          <p>P: Paragraph text</p>
+          <ul>
+            <li>Font-weight: 400 (regular)</li>
+            <li>Font-size: 14px</li>
+            <li>Font-family: Space Mono</li>
+          </ul>
+        </div>
+        <div class="text-panel">
+          <h2 class="feature primary">Feature Headline</h2>
+          <ul>
+            <li>Font-weight: 400 (regular)</li>
+            <li>Font-size: 14px</li>
+            <li>Font-family: Space Mono</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+      //
+      // Set theme according to os settings
+      // 
+      let body = document.querySelector('body');
+      if (window.matchMedia('(prefers-color-scheme: dark)')) {
+        if (!body.classList.contains('dark')) {
+          if (body.classList.contains('light')){
+            body.classList.replace('light', 'dark');
+          } else {
+            body.classList.add('dark');
+          }
+        }
+      } else if (window.matchMedia('(prefers-color-scheme: light)')) {
+        if (!body.classList.contains('light')) {
+          if(body.classList.contains('dark')){
+            body.classList.replace('dark', 'light');
+          } else {
+            body.classList.add('light');
+          }
+        }
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+          const newColorScheme = event.matches ? 'dark' : 'light';
+      });
+      // 
+      // Switch the Theme
+      // 
+      let themeBtns = document.querySelectorAll('[id*=theme-]');
+      let switchTheme = function(){
+        if(this.value === 'light') {
+          if(body.classList.contains('dark')){
+            body.classList.replace('dark', this.value);
+          } else if ( !body.classList.contains('light') ){
+            body.classList.add('light');
+          }
+        } else if (this.value === 'dark'){
+          if(body.classList.contains('light')){
+            body.classList.replace('light', this.value);
+          } else if ( !body.classList.contains('dark') ){
+            body.classList.add('dark');
+          }
+        }
+      }
+      for(let i = 0; i<themeBtns.length; i++) {
+        themeBtns[i].addEventListener('click', switchTheme, false);
+      }
+    </script>
+</body>
+</html>
