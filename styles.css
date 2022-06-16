@@ -9,12 +9,12 @@ body {
 }
 
 /* THEME */
-.light {
+.theme-light {
   background-color: #efe8e3;
   color: #000000;
 }
 
-.dark {
+.theme-dark {
   background-color: #212121;
   color: #efe8e3;
 }
@@ -60,9 +60,17 @@ h5 {
 h6 {
   font-size: 1rem;
 }
-
+a {
+  color: #ff430f;
+}
+em, i {
+  font-style: italic;
+}
+strong, b {
+  font-weight: bold;
+}
 pre, code {
-    font-family: 'EllographCF-Regular', monospace;
+    font-family: 'EllographCF-RegularItalic', monospace;
 }
 .regular {
     font-style: normal;

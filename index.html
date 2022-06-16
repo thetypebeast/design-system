@@ -14,8 +14,8 @@
     </div>
     <div class="theme-container container">
       <div class="theme-panel">
-        <button id="theme-light" value="light">Light</button>
-        <button id="theme-dark" value="dark">Dark</button>
+        <button id="theme-light" value="theme-light">Light</button>
+        <button id="theme-dark" value="theme-dark">Dark</button>
       </div>
     </div>
     <div id="colors">
@@ -96,6 +96,8 @@
           <h4>h4: Lorem Ipsum Dolor sit Amet</h4>
           <h5>h5: Lorem Ipsum Dolor sit Amet</h5>
           <h6>h6: Lorem Ipsum Dolor sit Amet</h6>
+          <p>Paragraph text. This is an <a href="#" alt="This link doesnt go anywhere.">anchor</a>. This is <em>emphasized</em>. This is <strong>strong</strong></p>
+
         </div>
         <!-- <div class="text-panel">
           <h2>H2: Subheading</h2>
@@ -129,41 +131,41 @@
       // 
       let body = document.querySelector('body');
       if (window.matchMedia('(prefers-color-scheme: dark)')) {
-        if (!body.classList.contains('dark')) {
-          if (body.classList.contains('light')){
-            body.classList.replace('light', 'dark');
+        if (!body.classList.contains('theme-dark')) {
+          if (body.classList.contains('theme-light')){
+            body.classList.replace('theme-light', 'theme-dark');
           } else {
-            body.classList.add('dark');
+            body.classList.add('theme-dark');
           }
         }
       } else if (window.matchMedia('(prefers-color-scheme: light)')) {
-        if (!body.classList.contains('light')) {
-          if(body.classList.contains('dark')){
-            body.classList.replace('dark', 'light');
+        if (!body.classList.contains('theme-light')) {
+          if(body.classList.contains('theme-dark')){
+            body.classList.replace('theme-dark', 'theme-light');
           } else {
-            body.classList.add('light');
+            body.classList.add('theme-light');
           }
         }
       }
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-          const newColorScheme = event.matches ? 'dark' : 'light';
+          const newColorScheme = event.matches ? 'theme-dark' : 'theme-light';
       });
       // 
       // Switch the Theme
       // 
       let themeBtns = document.querySelectorAll('[id*=theme-]');
       let switchTheme = function(){
-        if(this.value === 'light') {
-          if(body.classList.contains('dark')){
-            body.classList.replace('dark', this.value);
-          } else if ( !body.classList.contains('light') ){
-            body.classList.add('light');
+        if(this.value === 'theme-light') {
+          if(body.classList.contains('theme-dark')){
+            body.classList.replace('theme-dark', this.value);
+          } else if ( !body.classList.contains('theme-light') ){
+            body.classList.add('theme-light');
           }
-        } else if (this.value === 'dark'){
-          if(body.classList.contains('light')){
-            body.classList.replace('light', this.value);
-          } else if ( !body.classList.contains('dark') ){
-            body.classList.add('dark');
+        } else if (this.value === 'theme-dark'){
+          if(body.classList.contains('theme-light')){
+            body.classList.replace('theme-light', this.value);
+          } else if ( !body.classList.contains('theme-dark') ){
+            body.classList.add('theme-dark');
           }
         }
       }
